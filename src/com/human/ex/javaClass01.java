@@ -65,13 +65,11 @@ public class javaClass01 {
 		int[]a=new int[3];
 		int sum=0;
 		for(int i=0;i<a.length;i++) {
-			a[i]=i;
-		}
-		a[0]=a[1]+a[2];
-		for(int i=0;i<a.length;i++) {
+			a[i]=(i+1)*3;
 			sum=sum+a[i];
 		}
 		System.out.println(sum);
+		
 		sum=0;
 		for(int i:a) {
 			sum=sum+i;
@@ -93,15 +91,15 @@ public class javaClass01 {
 		int index=1;//인덱스를 변수로 넣을수 잇따.
 		a[index]=3;
 		System.out.println(Arrays.toString(a));
-		
+		int sum=0;
 		for(int i=0;i<3;i++) {
-			a[i]=i;	
+			a[i]=i;
 		}
 		System.out.println(Arrays.toString(a));
-		
 		for(int i=0;i<a.length;i++) {
 			System.out.println(a[i]);
 		}
+		
 		//문제1
 		int a[]= {1,2,3,4,5};
 		int b=1;
@@ -114,6 +112,10 @@ public class javaClass01 {
 			a[i]=a[i]+2;	
 			System.out.println(a[i]);
 		}
+		for(int i:a){
+			System.out.println(i);
+		}
+		
 		
 		
 		//문제3
