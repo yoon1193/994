@@ -21,9 +21,9 @@ public class BlackjackStart {
 		
 		//카드를 섞어보자
 		Random rand=new Random();
+		int randNum=rand.nextInt(52);
+		int temp;
 		for(int i=0;i<10000;i++) {
-			int randNum=rand.nextInt(52);
-			int temp;
 			temp=deck[0];
 			deck[0]=deck[randNum];
 			deck[randNum]=temp;
@@ -33,7 +33,7 @@ public class BlackjackStart {
 //		for(int i:deck) {
 //			System.out.println(i+" ");
 //			System.out.println("카드모양:"+cardShape[i/cardNum.length]);//i/13
-//			System.out.println("카드 숫자:"+cardNum[i%cardNum.length]);//i%13 
+//			System.out.println("카드 숫자:"+cardNum[i%cardNum.length]);//i%13 	
 //		}
 		
 		//카드를 1장씩 뽑아서 플레이어에게 주는 작업
