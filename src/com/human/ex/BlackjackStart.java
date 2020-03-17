@@ -21,15 +21,15 @@ public class BlackjackStart {
 		
 		//카드를 섞어보자
 		Random rand=new Random();
-		int randNum=rand.nextInt(52);
 		int temp;
 		for(int i=0;i<10000;i++) {
+			int randNum=rand.nextInt(52);
 			temp=deck[0];
 			deck[0]=deck[randNum];
 			deck[randNum]=temp;
 		}
 		
-//		섞인카드 모두 출력(섞였는지 확인용)
+//		//섞인카드 모두 출력(섞였는지 확인용)
 //		for(int i:deck) {
 //			System.out.println(i+" ");
 //			System.out.println("카드모양:"+cardShape[i/cardNum.length]);//i/13
