@@ -12,27 +12,33 @@ public class javaClass01 {
 //		int []a= {10,20,30,40,50,60,70,80,90,100};
 //		System.out.println(Arrays.toString(a));
 //		Scanner sc=new Scanner(System.in);
-//		System.out.println("탐색할 값을 입력하세요:");
-//		int num=sc.nextInt();
-//		for(int i=0;i<a.length;i++) {
-//			if(a[i]==num) {
-//				System.out.println("탐색 성공 인덱스는"+i+"입니다");
+//		boolean state= false;
+//		while(!state) {
+//			System.out.println("탐색할 값을 입력하세요:");
+//			int num=sc.nextInt();
+//			for(int i=0;i<a.length;i++) {
+//				if(a[i]==num) {
+//					System.out.println("탐색 성공 인덱스는"+i+"입니다");
+//					state=true;
+//					break;
+//				}
+//			}
+//			if(state==false) {
+//				System.out.println("잘 못 입력");
 //			}
 //		}
-//		//p.6문제1
+		//p.6문제1
 //		String s[]= new String[6];
 //		s[0]="A";
 //		s[1]="B";
 //		s[2]="C";
 //		System.out.println(Arrays.toString(s));
-//		String s1[]=new String[6];
-//		s1[0]=s[0];
-//		s1[1]=s[1];
-//		s1[2]=s[2];
-//		s1[3]=s[2];
-//		s1[4]=s[1];
-//		s1[5]=s[0];
-//		System.out.println(Arrays.toString(s1));
+//		int index=2;
+//		for(int i=3;i<s.length;i++) {
+//			s[i]=s[index];
+//			index--;
+//		}
+//		System.out.println(Arrays.toString(s));
 		//p.7문제
 //		Random rand=new Random();
 //		String []s2= {"a","p","p","l","e"};
@@ -100,17 +106,22 @@ public class javaClass01 {
 //		System.out.println("70점 이상인 학생은 "+count+"명 입니다");
 		//p.11
 //		int []a=new int[5];
-//		double avg1=0;
-//		double avg2=0;
-//		double avg3=0;
+//		int scoreSum[]=new int[3];
 //		String []s= {"국어","영어","수학"};
 //		Scanner sc=new Scanner(System.in);
 //		for(int i=0;i<5;i++) {
 //			for(int j=0;j<3;j++) {
 //				System.out.println(i+1+"번 학생"+s[j]+"성적 입력:");
 //				int num=sc.nextInt();
-//			}			
+//				scoreSum[j]+=num;//국 영 수 총점 저장
+//			}
 //		}
+//		for(int i=0;i<3;i++) {
+//			System.out.println(s[i]+"총점="+scoreSum[i]+"평균="+(double)scoreSum[i]/5);
+//			
+//		}
+		
+		
 		//p.11문제3
 //		int []a=new int[4];
 //		System.out.println("4자릿수 정수를 입력하세요");
@@ -126,39 +137,93 @@ public class javaClass01 {
 //		for(int i=3;i>=0;i--){
 //			System.out.print("역순 출력="+a[i]);
 //		}
-//		//p.12출석문제
+		//p.12출석문제
 //		int []a=new int[16];
 //		int i=0;
 //		while(true) {
 //			System.out.println(a[i]);
 //		}
 		//p.12도전
-		int a[]=new int[5];
-		int max=a[0];
-		int min=a[0];
-		int avg=0;
-		int pn[]=new int[5];
-		System.out.println("5명의 심사위원의 점수 입력=");
+//		int a[]=new int[5];
+//		int max=Integer.MIN_VALUE;	
+//		int min=Integer.MAX_VALUE;
+//		int sum=0;
+//		System.out.println("5명의 심사위원의 점수 입력=");
+//		Scanner sc=new Scanner(System.in);
+//		for(int i=0;i<a.length;i++) {
+//			int score=sc.nextInt();
+//			a[i]=score;
+//			if(a[i]>max) {
+//				max=a[i];
+//			}
+//			if(a[i]<min) {
+//				min=a[i];
+//			}
+//		}
+//		System.out.print("유효점수=");
+//		for(int i=0;i<a.length;i++) {
+//			if(a[i]!=max&&a[i]!=min) {
+//				System.out.print(a[i]+" ");
+//				sum+=a[i];
+//			}	
+//		}
+//		System.out.println();
+//		System.out.println("평균="+(double)sum/3);
+//		
+//		int []a=new int[50];
+//		int []b=new int [50];
+//		System.out.println("숫자를 입력하세요:");
+//		Scanner sc=new Scanner(System.in);
+//		int num=sc.nextInt();
+//		for(int i=0;i<a.length;i++) {
+//			a[i]=i+1;
+//			if(i%10==9) {
+//				System.out.println(a[i]);
+//				System.out.println();
+//			}
+//			else
+//			System.out.print(a[i]+" ");
+//		}
+//		System.out.println();
+//		for(int i=0;i<b.length;i++) {
+//			b[i]=a[i];
+//			if(b[i]%num==0) {
+//				b[i]=0;
+//			}
+//			if(i%10==9) {
+//				System.out.println(b[i]);
+//				System.out.println();
+//			}
+//			else
+//			System.out.print(b[i]+" ");
+//	}
+		
+		int lottoNum[]=new int[6];
+		int count=0;
+		boolean check;
 		Scanner sc=new Scanner(System.in);
-		for(int i=0;i<a.length;i++) {
-			int score=sc.nextInt();
-			a[i]=score;
-			if(a[i]>max) {
-				max=a[i];
+		while(count<6) {
+			check=false;
+			System.out.println("로또 번호 입력:");
+			int num=sc.nextInt();
+			for(int i=0;i<lottoNum.length;i++) {
+				if(lottoNum[i]==num){
+					check=true;
+					break;
+				}
 			}
-			if(a[i]<min) {
-				min=a[i];
+			if(check) {
+				System.out.println("중복된숫자");	
 			}
-		}
-		for(int i=0;i<a.length;i++) {
-			if(a[i]!=max&&a[i]!=min) {
-				pn[i]=a[i];
-				System.out.print(pn[i]);
-			}	
+			else {
+				lottoNum[count]=num;
+				count++;
+			}
 			
-		
 		}
-		
+		for(int i=0;i<lottoNum.length;i++) {
+			System.out.print(lottoNum[i]+" ");
+		}
 	}
 
 }
