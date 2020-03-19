@@ -18,11 +18,11 @@ public class javaClass9 {
 	public static int funcAll(int a) {
 		return a;
 	}
-	public static double funcAll(double b) {
-		return b;
+	public static double funcAll(double a,int b) {
+		return a+b;
 	}
-	public static String funcAll(String s) {
-		return s;
+	public static String funcAll(String s,double a, int b) {
+		return s+a+b;
 	}
 	public static double circle(double a) {
 		System.out.println("¿ø ³ÐÀÌ´Â"+3.14*a*a);
@@ -45,8 +45,8 @@ public class javaClass9 {
 //		System.out.println(sum(10,20.1));
 //		System.out.println(sum(10,10,10));
 		System.out.println(funcAll(10));
-		System.out.println(funcAll(123.23));
-		System.out.println(funcAll("dd"));
+		System.out.println(funcAll(123.23,10));
+		System.out.println(funcAll("dd",13.12,10));
 		System.out.println();
 		boolean state=false;
 		while(!state) {
