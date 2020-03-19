@@ -1,5 +1,8 @@
 package com.human.ex;
-
+class Cat{
+	String name;
+	int age;
+}
 public class javaClass4 {
 	public static void triangle1() {
 		for(int i=0;i<5;i++) {
@@ -28,17 +31,22 @@ public class javaClass4 {
 			System.out.println();
 		}
 	}
-	public static void cardName(String name) {
+	public static void card(String name,int Num,String adress) {
 		System.out.print("이름=");
 		System.out.println(name);
-	}
-	public static void cardNum(String Num) {
 		System.out.print("번호=");
 		System.out.println(Num);
-	}
-	public static void cardAdress(String adress) {
 		System.out.print("주소=");
 		System.out.println(adress);
+	}
+	public static int arrSum(int a[]) {
+		int sum=0;
+		for(int i=0;i<a.length;i++) {
+			sum+=a[i];
+		}
+		System.out.println(sum);
+		return sum;
+		
 	}
 	public static void calender() {
 		System.out.println("일\t월\t화\t수\t목\t금\t토");
@@ -53,54 +61,96 @@ public class javaClass4 {
 		}
 	}
 	public static int intFunc(int a) {
+		System.out.println("나이="+a);
 		return a;
 	}
 	public static double doubleFunc(double a) {
+		System.out.println("신장="+a);
 		return a;
 	}
 	public static String stringFunc(String s) {
+		System.out.println("이름="+s);
 		return s;
 	}
-	public static void catFunc(String a,double b,int c) {
-		System.out.println("이름="+a);
-		System.out.println("신장="+b);
-		System.out.println("나이="+c);
+	public static Cat catFunc(Cat c) {
+		Cat rValue=c;
+		c.age=c.age+1;
+		return c;
 	}
-	public static int[] intArrFunc(int[] arr) {
-		return arr;
+	public static int[] intArrFunc(int arr[]) {
+		int rArr[]=new int[2];
+		rArr[0]=arr[0];
+		rArr[1]=arr[1];
+		for(int i=0;i<2;i++) {
+		rArr[i]=rArr[i]+1;
+		}
+		return rArr;
 	}
-	public static void catObject(String s,int[]arr) {
-		System.out.println("이름="+s);
-		System.out.println("신장="+arr[0]);
-		System.out.println("나이="+arr[1]);
+	public static Cat[] catArrFunc(Cat[] arr) {
+		Cat[] rArr=new Cat[2];
+		rArr[0]=new Cat();
+		rArr[0].name=arr[0].name;
+		rArr[0].age=arr[0].age;
+		rArr[1]=new Cat();
+		rArr[1].name=arr[1].name;
+		rArr[1].age=arr[1].age;
+		return rArr;
 	}
 	
 	public static void main(String[] args) {
+		//문제1
 		triangle1();
 		System.out.println();
 		triangle2();
 		System.out.println();
 		triangle3();
+		//문제2
 		System.out.println();
-		cardName("홍길동");
-		cardNum("010-xxxx-xxxx");
-		cardAdress("두정동");
+		card("홍길동",12341234,"두정동");
 		System.out.println();
+		//문제3
+		int []a= {1,2,10};
+		arrSum(a);
+		System.out.println();
+		//문제4
 		calender();
 		System.out.println();
 		System.out.println();
-	
-		int age=intFunc(3);
-		
-		double tall=doubleFunc(13.1);
-		
-		String name=stringFunc("고양이");
-		
+		//문제5
+		intFunc(3);
+		doubleFunc(80.1);
+		stringFunc("고양이");
 		System.out.println();
-		catFunc(name,tall,age);
-		for(int i=0;i<3;i++) {
-			
-		}
+		Cat cat1=new Cat();
+		cat1.name="고1";
+		cat1.age=11;
+		Cat cat2;
+		cat2=catFunc(cat1);
+		System.out.println(cat1.age);
+		System.out.println(cat2.age);
+		System.out.println();
+		int arr1[]= {1,1};
+		int arr2[]=intArrFunc(arr1);
+		System.out.println(arr1[0]);
+		System.out.println(arr2[0]);
+		System.out.println(arr2[1]);
+		System.out.println();
+		Cat[] cArr1=new Cat[2];
+		Cat[] cArr2;
+		cArr1[0]=new Cat();
+		cArr1[0].name="고1";
+		cArr1[0].age=11;
+		cArr1[1]=new Cat();
+		cArr1[1].name="고2";
+		cArr1[1].age=12;
+		cArr2=catArrFunc(cArr1);
+		System.out.println(cArr1[0].age);
+		System.out.println(cArr1[1].age);
+		System.out.println(cArr2[0].age);
+		System.out.println(cArr2[1].age);
+	
+		
+		
 		
 		
 		 

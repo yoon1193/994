@@ -287,18 +287,32 @@ public class javaClass01 {
 		for(int i=0;i<lottoNum.length;i++) {
 			System.out.print(lottoNum[i]+" ");
 		}*/
-		//369ÇØ´äÁö Ãâ·Â
-		int []a=new int[1000];
+		//3ÀÇ ¹è¼ö Â¦ 10¿¡ ¸¸¼¼
+		int []a=new int[100];
 		String s="Â¦";
 		for(int i=0;i<a.length;i++) {
 			a[i]=i+1;
 		}
 		for(int i=0;i<a.length;i++) {
-			if(a[i]%3==0) {
-				a[i]=0;
+			if(a[i]%10==0) {
+				System.out.println("¸¸¼¼");
+				continue;
+			}
+			if(a[i]>10&&a[i]/10%10%3==0) {
+				System.out.println("Â¦");
+			}
+			if(a[i]%10%3==0) {
+				System.out.println("Â¦");
+			}
+			else if(a[i]>10&&a[i]/10%10%3==0) {
+			
+			}
+			else {
 				System.out.println(a[i]);
 			}
+		
 		}
+		
 	}
 
 }

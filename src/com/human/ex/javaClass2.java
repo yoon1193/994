@@ -2,10 +2,10 @@ package com.human.ex;
 
 import java.util.Arrays;
 
-class Cat{
-	public String name;
-	public int age;
-}
+//class Cat{
+//	public String name;
+//	public int age;
+//}
 
 public class javaClass2 {
 
