@@ -12,8 +12,7 @@ public class javaClass11 {
 	}
 	public static int evensum(){
 		int sum=0;
-		int temp=0;
-		System.out.print("a~b까지 짝수의 합은=");
+		System.out.print("1~100까지 짝수의 합은=");
 		for(int i=1;i<=100;i++) {
 			if(i%2==0) {
 				sum+=i;
@@ -23,8 +22,7 @@ public class javaClass11 {
 	}
 	public static int oddSum(){
 		int sum1=0;
-		int temp=0;
-		System.out.print("a~b까지 홀수의 합은=");
+		System.out.print("1~100까지 홀수의 합은=");
 		for(int i=1;i<=100;i++) {
 			if(i%2==1) {
 				sum1+=i;
