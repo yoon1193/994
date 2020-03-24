@@ -61,9 +61,6 @@ class Tv{
 	}
 
 }
-class Ev{
-	
-}
 
 
 public class classStart3 {
