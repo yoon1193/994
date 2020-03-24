@@ -25,12 +25,12 @@ class Card{
 	
 	//카드의 넓이를 리턴하는 클래스메소드
 	public static int area() {
-		return Card.height*Card.width;
-	}
+		return Card.height*Card.width; 
+	} 
 	//인스턴스 메소드
-	public int cardDisplay() {
-		return width*height;
-	}
+	public String cardDisplay() {
+		return shape+number;
+	} 
 	//생성자메소드
 	public Card() {}
 	public Card(String shape,String number) {
