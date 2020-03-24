@@ -50,7 +50,7 @@ public class classStart {
 	
 	public static void main(String[] args) {
 		
-//		Cat cat1=new CAt();
+//		Cat cat1=new Cat();
 //		cat1.name="°í1";
 //		cat1.age=13;
 //		Cat cat2=new Cat();
