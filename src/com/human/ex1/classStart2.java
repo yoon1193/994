@@ -17,6 +17,9 @@ package com.human.ex1;
 //클래스-실제 프로그램에서 객체구현할때 사용하는 키워드
 //인스턴스-클래스로 생선된 객체
 //클래스-객체만들려고 선언해놓은 키워드
+//static(클래스) 메소드에서는 인스턴스 필드에 접급할수없다.
+//static(클래스) 메소드에서는 static(클래스) 필드에 접근 할수있다.
+//인스턴스 메소드에서는 static(클래스) 필드에 접근 할 수있다.
 class Card{
 	public static int width=100;//클래스필드
 	public static int height=200;

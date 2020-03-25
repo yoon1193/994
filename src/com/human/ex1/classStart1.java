@@ -22,16 +22,8 @@ class Rectangle{
 	public int getHeight() {
 		return this.height;
 	}
-	public Rectangle() {
-	
-	}
+	public Rectangle() {}
 	public Rectangle(int width,int height) {
-		if(width<0) {
-			width=0;
-		}
-		if(height<0) {
-			height=0;
-		}
 		this.width=width;
 		this.height=height;
 	}
