@@ -1,38 +1,40 @@
 package quiz;
 class Printer{
 	private int numOfpapers=0;
-	public int paper=0;
-	
+
 	public Printer() {}
-	public Printer(int paper) {
-		this.paper = paper;
+	public Printer(int numOfpapers) {
+		this.numOfpapers = numOfpapers;
 	}
-	public void setNumofpaper(int numOfpapaers) {
-		if(numOfpapers==0) {
-			numOfpapaers=0;
+	public String getNumOfPapers() {
+		if(numOfpapers>0) {
+			return "현재 "+numOfpapers+" 장 남아있습니다.";
 		}
-		this.numOfpapers=numOfpapaers;
-	}
-	public int getNumofpaper() {
-		System.out.println("용지가 없습니다.");
-		return this.numOfpapers;
+		return "용지가 없습니다";
 	}
 	public void print(int amount) {
-		if(amount>paper) {
-			System.out.println(Math.abs(this.paper-amount)+"장이 부족"+this.numOfpapers+"만 출력");
-		}
-		this.numOfpapers=this.paper-amount;
+		if(amount>numOfpapers) {
+			System.out.println("모두 출력할려면 "+(amount-numOfpapers)+"장 부족합니다.");
+			System.out.println(numOfpapers+"장 만 출력합니다.");
+			numOfpapers=0;
+		}else if(amount<=numOfpapers) {
+		numOfpapers=numOfpapers-amount;
 		System.out.println(amount+"장 출력했습니다");
-		System.out.println(this.numOfpapers+"장 남았습니다.");
+		System.out.println("현재 "+numOfpapers+"장 남았습니다.");
 		
+		}
 	}
 
 }
 public class classQuiz2 {
 
 	public static void main(String[] args) {
-		Printer p=new Printer(100);
-		p.print(100);
+		Printer p=new Printer(10);
+		p.print(2);
+		p.print(20);
+		System.out.println(p.getNumOfPapers());
+		
+		
 		
 	
 		
