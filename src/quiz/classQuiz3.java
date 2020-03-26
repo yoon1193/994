@@ -31,7 +31,7 @@ class Triangle{
 		return base*height/2;
 	}
 	public boolean isSameArea(Triangle t) {
-		double t1Area=findArea();
+		double t1Area=this.findArea();
 		double tArea=t.findArea();
 		if(t1Area==tArea) {
 			return true;

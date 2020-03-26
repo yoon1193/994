@@ -7,7 +7,7 @@ class Line{
 		this.length = length;
 	}
 	public boolean isSameLine(Line l) {
-		if(length==l.length) {
+		if(this.length==l.length) {
 			return true;
 		}else {
 			return false;

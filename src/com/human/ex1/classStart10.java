@@ -54,7 +54,7 @@ class ProductManager {
 	public ProductManager() {
 	}
 
-	// 1. 상품등록
+	
 	public void registTestData() {
 		Product p1 = new Product("새우깡", 100);
 		registProduct(p1);
@@ -68,7 +68,7 @@ class ProductManager {
 		registProduct(p5);
 
 	}
-
+	// 1. 상품등록
 	public void registProduct(Product p) {
 		arrProduct[arrIndex++] = p;
 		// arrProduct[Product.totalCount-1]=p;
@@ -138,8 +138,39 @@ class ProductManager {
 		}
 
 	}
-	 
-
+	public void start() {
+		String s="";
+		while(!s.equals("6")) {
+			System.out.println("1.상품등록 2.입고 3.출고 4.상품검색 5.재고확인 6.종료");
+			s=sc.nextLine();
+			switch(s) {
+			case "1":
+				registProduct();
+				break;
+			case "2":
+				inputProduct();
+				break;
+			case "3":
+				outputProduct();
+				break;
+			case "4":
+				System.out.println("검색 할 상품:");
+				String name=sc.nextLine();
+				searchProduct(name).display();
+				break;
+			case "5":
+				displayProduct();
+				break;
+			case "6":
+				System.out.println("종료");
+				break;
+				default:
+					System.out.println("다시 입력");
+					break;		
+			}
+		}
+		
+	}
 }
 
 public class classStart10 {
@@ -150,6 +181,7 @@ public class classStart10 {
 		// pm.registProduct();
 		// pm.registTestData();
 		// pm.displayProduct();
+		pm.start();
 
 	}
 
