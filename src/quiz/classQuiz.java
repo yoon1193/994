@@ -1,6 +1,10 @@
 package quiz;
 class Dice{
-	public int face;
+	public int a;
+
+	public void roll() {
+		
+	}	
 }
 public class classQuiz {
 
