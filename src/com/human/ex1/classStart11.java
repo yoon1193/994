@@ -1,8 +1,5 @@
 package com.human.ex1;
 
-import sun.net.www.content.text.plain;
-import sun.security.util.Password;
-
 class Bank {
 	public static int totalCount = 0;
 	public String name;
