@@ -1,49 +1,39 @@
 package com.human.ex1;
 
 class Bank {
-	public static int totalCount = 0;
+	public static int totalCustomer = 0;
 	public String name;
-	public int count = 0;
-	public String num;
-	public String password;
+	public int money = 0;
+	public int account=0;
+	public int password=0;
 
 	public void display() {
-		System.out.println("전체 회원 인원:" + Bank.totalCount);
+		System.out.println("총 회원"+Bank.totalCustomer+"명");
 		System.out.println("회원 이름:" + this.name+"님");
-		System.out.println("비밀번호:"+this.password);
-		System.out.println("계좌번호:"+this.num);
-		System.out.println("잔액:" + this.count+"원 ");
-
+		System.out.println("계좌번호:"+this.account);
+		System.out.println("잔액:" + this.money+"원 ");
 	}
-
+	
 	// 생성자
 	public Bank() {
-		Bank.totalCount++;
+		Bank.totalCustomer++;
 	}
-
-	public Bank(String name) {
-		this(name, "" ,"", 0);
- 
-	}
-
-	public Bank(String name,String num,String password,int count) {
+	public Bank(String name,int password,int account,int money) {
 		this();
 		this.name = name;
-		this.num=num;
-		this.password =password;
-		this.count = count;
+		this.password=password;
+		this.account=account;
+		this.money = money;
 	}
-
 }
-
 
 class BankManager {
 	public static java.util.Scanner sc = new java.util.Scanner(System.in);
 	public int arrIndex = 0;
 	public Bank[] bankMember = new Bank[100];
-
 	public BankManager() {
 	}
+	
 	// 1. 회원등록
 	public void registBank(Bank p) {
 		bankMember[arrIndex++] = p;
@@ -53,85 +43,85 @@ class BankManager {
 		System.out.println("회원이름>>");
 		String name = sc.nextLine();
 		System.out.println("계좌번호>>");
-		String num=sc.nextLine();
-		System.out.println("비밀번호 입력");
-		String password=sc.nextLine();
-		System.out.println("입금금액>>");
-		int count = Integer.parseInt(sc.nextLine());
-		bankMember[arrIndex++] = new Bank(name,num,password,count);
-
+		int account=Integer.parseInt(sc.nextLine());
+		System.out.println("비밀번호>>");
+		int password=Integer.parseInt(sc.nextLine());
+		System.out.println("첫 입금금액>>");
+		int money = Integer.parseInt(sc.nextLine());
+		bankMember[arrIndex++] = new Bank(name,password,account,money);
 	}
 
 	// 2. 입금
 	public void inputMoney() {
 		System.out.println("회원명 입력>>");
 		String name = sc.nextLine();
-		System.out.println("비밀번호 입력");
-		String password=sc.nextLine();
-		System.out.println("입금할 금액입력>>");
-		int count = Integer.parseInt(sc.nextLine());
-		
-		Bank p = searchMember(name,password);
+		Bank p = searchMember(name);
 		if (p == null) {
 			System.out.println("없는 회원입니다.");
-		} else if(password!=p.password){
-			System.out.println("잘못된 비밀번호");
+			return ;
 		}
-		else {
-			p.count = p.count + count;
-			System.out.println(p.count+"입금 완료");
+		System.out.println("비밀번호 입력>>");
+		int password=Integer.parseInt(sc.nextLine());
+		if(p.password!=password) {
+			System.out.println("틀린번호");
+			return;
 		}
+		System.out.println("입금할 금액입력>>");
+		int money = Integer.parseInt(sc.nextLine());
+		p.money += money;
+		System.out.println(money+"입금 완료");
+	
 		p.display();
-
+	
 	}
-
+	
 	// 3. 출금
 	public void outputMoney() {
 		System.out.println("회원명 입력>>");
 		String name = sc.nextLine();
-		String password=sc.nextLine();
-		System.out.println("비밀번호 입력>>");
-		System.out.println("출금할 금액입력>>");
-		int count = Integer.parseInt(sc.nextLine());
-
-		Bank p = searchMember(name,password);
+		Bank p = searchMember(name);
 		if (p == null) {
 			System.out.println("없는 회원입니다.");
+			return ;
 		}
-		else if(password!=p.password){
-			System.out.println("잘못된 비밀번호");
+		System.out.println("비밀번호 입력>>");
+		int password=Integer.parseInt(sc.nextLine());
+		if(p.password!=password) {
+			System.out.println("틀린번호");
+			return;
 		}
-		else {
-			p.count = p.count - count;
-			System.out.println(p.count+"출금 완료");
+		System.out.println("출금할 금액입력>>");
+		int money = Integer.parseInt(sc.nextLine());
+		if(p.money<money) {
+			System.out.println("잔액 부족");
+			return;
 		}
+		p.money -=  money;
+		System.out.println(money+"출금 완료");
 		p.display();
+	
 	}
-
+	
 	// 4. 회원검색
-	public Bank searchMember(String name,String password) {
+	public Bank searchMember(String name) {
 		Bank returnValue = null;
 		for (int i = 0; i < arrIndex; i++) {
 			if (bankMember[i].name.equals(name)) {
 				returnValue = bankMember[i];
 				break;
 			}
-			if (bankMember[i].password.equals(password)) {
-				returnValue = bankMember[i];
-				break;
-			}
-			
+		
 		}
 		return returnValue;
 	}
-
+	
 	// 5. 회원확인
 	public void didplayMember() {
-		for (int i = 0; i < Bank.totalCount; i++) {
+		for (int i = 0; i < Bank.totalCustomer; i++) {
 			bankMember[i].display();
 		}
-
 	}
+	
 	public void start() {
 		String s="";
 		while(!s.equals("6")) {
@@ -150,8 +140,7 @@ class BankManager {
 			case "4":
 				System.out.println("검색 할 회원:");
 				String name=sc.nextLine();
-				String password=sc.nextLine();
-				searchMember(name,password).display();
+				searchMember(name).display();
 				break;
 			case "5":
 				didplayMember();
@@ -172,7 +161,5 @@ public class classStart11 {
 	public static void main(String[] args) {
 		BankManager bm = new BankManager();
 		bm.start();
-
 	}
-
 }
