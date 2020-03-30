@@ -30,6 +30,7 @@ class Card{
 	public static int area() {
 		return Card.height*Card.width; 
 	} 
+	
 	//인스턴스 메소드
 	public String cardDisplay() {
 		return shape+number;

@@ -36,11 +36,14 @@ class Order{
 public class classQuiz1 {
 
 	public static void main(String[] args) {
+		
 		System.out.println("이 사람의 나이="+Man.age);
 		System.out.println("이 사람의 이름="+Man.name);
 		System.out.println("이 사람의 결혼 여부="+Man.isMarried);
 		System.out.println("이 사람의 자녀수="+Man.children);
 		System.out.println();
+
+	
 		Order a=new Order("201803120001", "abc123","2018년 3월 12일","홍길순",
 							"PD0345-12","서울시 영등포구 여의도동 20번지");
 		a.content();

@@ -1,6 +1,6 @@
 package quiz;
 class Car{
-	private String color;
+	private  String color;
 	public static int numofCars;
 	public static int numofRedCars;
 

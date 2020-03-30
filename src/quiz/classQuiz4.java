@@ -45,7 +45,9 @@ class Member{
 public class classQuiz4 {
 
 	public static void main(String[] args) {
+		
 		Member p=new Member("ÅÂ¾ç","taeyang","ty123",23);
+		p.setName("¶Ë");
 		Member p1=new Member("±İ¼º","asdasd","asjdaklsjd123",123);
 		p.memberData();
 		p1.memberData();

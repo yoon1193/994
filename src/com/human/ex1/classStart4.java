@@ -1,4 +1,4 @@
-package com.human.ex1;
+//
 //package com.human.ex1;
 //class ExchangeClass{
 //	public double exchangeRate=1200;

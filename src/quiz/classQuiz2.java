@@ -1,6 +1,6 @@
 package quiz;
 class Printer{
-	private int numOfpapers=0;
+	private static int numOfpapers=0;
 	private boolean duplex;
 
 	public Printer() {}
@@ -46,6 +46,9 @@ class Printer{
 	}
 	public boolean getDuplex() {
 		return this.duplex;
+	}
+	public static void main(String[] args) {
+		
 	}
 
 }
